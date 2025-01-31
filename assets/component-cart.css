@@ -15,6 +15,21 @@ cart-items.is-empty .title-wrapper-with-link,
   display: block;
 }
 
+.radio-inline {
+  display: flex;
+  flex-direction: column; /* Ensures each radio is on its own line */
+  gap: 10px; /* Adds spacing between the rows */
+}
+
+.radio-inline div {
+  display: flex;
+  align-items: center; /* Aligns the radio button and text vertically */
+}
+
+.radio-inline input[type="radio"] {
+  margin-right: 8px; /* Adds spacing between the radio button and text */
+}
+
 .cart__warnings {
   display: none;
   text-align: center;
@@ -155,7 +170,7 @@ cart-items {
   width: 100%;
 }
 
-.cart__ctas > * + * {
+.cart__ctas > *:not(noscript:first-child) + * {
   margin-top: 1rem;
 }
 

@@ -1,10 +1,1 @@
-{
-  "sections": {
-    "main": {
-      "type": "main-404"
-    }
-  },
-  "order": [
-    "main"
-  ]
-}
+{"sections":{"main":{"type":"main-404","disabled":true,"custom_css":[".button {display: none;}"],"settings":{}},"rich_text_BGnB9W":{"type":"rich-text","blocks":{"heading_MP6QJC":{"type":"heading","settings":{"heading":"It seems like you are having problems.","heading_size":"h1"}},"text_iKtrpk":{"type":"text","settings":{"text":""}},"button_LLeHeQ":{"type":"button","settings":{"button_label":"Continue shopping","button_link":"shopify:\/\/pages\/directory","button_style_secondary":false,"button_label_2":"","button_link_2":"","button_style_secondary_2":false}}},"block_order":["heading_MP6QJC","text_iKtrpk","button_LLeHeQ"],"settings":{"desktop_content_position":"center","content_alignment":"center","color_scheme":"","full_width":true,"padding_top":40,"padding_bottom":52}}},"order":["main","rich_text_BGnB9W"]}

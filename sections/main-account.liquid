@@ -6,6 +6,65 @@
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
 
+
+
+
+/* sorawis CSS */
+ul *{
+  border: solid red 1p;
+}
+  
+.account-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  gap: 0.5rem;
+}
+  .account-menu a {
+    height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  }
+
+  .account-menu img {
+    margin-right: 1rem;
+    width: 2rem;
+  }
+
+
+  }
+
+  .settings-menu {
+    margin-top: 4rem;
+  }
+
+
+  .customer__title {
+    font-weight: 900;
+  }
+
+  .account-icon img {
+    width: 8rem;
+    height: 8rem;
+  }
+
+
+  #MainContent {
+    height: 70vh;
+  }
+/* sorawis/end  */
+
+  @media only screen and (min-width: 1000px) {
+    .account-header {
+      flex-direction: column;
+    }
+
+    .account-info {
+      margin-bottom: 1.5rem;
+    }
+  }
+  
+
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
@@ -14,141 +73,73 @@
   }
 {%- endstyle -%}
 
-<div class="customer account section-{{ section.id }}-padding">
-  <div>
+
+
+  <div class="customer-dashboard">
+    <div class="customer-account section-{{ section.id }}-padding">
+  <!-- Account Title -->
+  <div class="account-title">
+    <img src="https://cdn.shopify.com/s/files/1/0690/3411/5294/files/Account.svg?v=1736819484">
     <h1 class="customer__title">{{ 'customer.account.title' | t }}</h1>
-    <a href="{{ routes.account_logout_url }}">
-      <span class="svg-wrapper">
-        {{- 'icon-account.svg' | inline_asset_content -}}
-      </span>
-      {{ 'customer.log_out' | t }}
-    </a>
+  </div>
+  <!-- Header Section -->
+  <div class="account-header">
+    <div class="account-icon">
+      {% if customer %}
+        <img src="{{ customer.image | default: 'https://cdn.shopify.com/s/files/1/0690/3411/5294/files/Account.svg?v=1736819484' }}" alt="{{ customer.first_name }}'s Profile Picture">
+      {% else %}
+        <img src="https://cdn.shopify.com/s/files/1/0690/3411/5294/files/Account.svg?v=1736819484" alt="Default Profile Picture">
+      {% endif %}
+    </div>
+    <div class="account-info">
+            <!-- Username -->
+      {% if customer %}
+        <h2>{{ customer.first_name | default: 'Guest' }}</h2>
+      {% else %}
+        <h2>Guest</h2>
+      {% endif %}
+    </div>
   </div>
 
-  <div>
-    <div>
-      <h2>{{ 'customer.orders.title' | t }}</h2>
+  <!-- Menu Section -->
+  <ul class="account-menu">
+    <li>
+      <img src="https://cdn.shopify.com/s/files/1/0690/3411/5294/files/account-small.svg?v=1736820178">
+      <a href="/account" class="menu-link">Account Info.</a>
+      <span class="menu-arrow">➔</span>
+    </li>
+    <li>
+      <img src="https://cdn.shopify.com/s/files/1/0690/3411/5294/files/Shop.svg?v=1736261696">
+      <a href="/orders" class="menu-link">Order history</a>
+      <span class="menu-arrow">➔</span>
+    </li>
+    <li>
+      <img src="https://cdn.shopify.com/s/files/1/0690/3411/5294/files/cart.svg?v=1736820422">
+      <a href="/cart" class="menu-link">Cart</a>
+      <span class="menu-arrow">➔</span>
+    </li>
+    <li>
+     <img src="https://cdn.shopify.com/s/files/1/0690/3411/5294/files/star.svg?v=1736608334">
+      <a href="/pages/reward-view" class="menu-link">XXX</a>
+      <span class="menu-arrow">➔</span>
+    </li>
+  </ul>
 
-      {% paginate customer.orders by 20 %}
-        {%- if customer.orders.size > 0 -%}
-          <table role="table" class="order-history">
-            <caption class="visually-hidden">
-              {{ 'customer.orders.title' | t }}
-            </caption>
-            <thead role="rowgroup">
-              <tr role="row">
-                <th id="ColumnOrder" scope="col" role="columnheader">{{ 'customer.orders.order_number' | t }}</th>
-                <th id="ColumnDate" scope="col" role="columnheader">{{ 'customer.orders.date' | t }}</th>
-                <th id="ColumnPayment" scope="col" role="columnheader">{{ 'customer.orders.payment_status' | t }}</th>
-                <th id="ColumnFulfillment" scope="col" role="columnheader">
-                  {{ 'customer.orders.fulfillment_status' | t }}
-                </th>
-                <th id="ColumnTotal" scope="col" role="columnheader">{{ 'customer.orders.total' | t }}</th>
-              </tr>
-            </thead>
-            <tbody role="rowgroup">
-              {%- for order in customer.orders -%}
-                <tr role="row">
-                  <td
-                    id="RowOrder"
-                    role="cell"
-                    headers="ColumnOrder"
-                    data-label="{{ 'customer.orders.order_number' | t }}"
-                  >
-                    <a
-                      href="{{ order.customer_url }}"
-                      aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}"
-                    >
-                      {{ order.name }}
-                    </a>
-                  </td>
-                  <td headers="RowOrder ColumnDate" role="cell" data-label="{{ 'customer.orders.date' | t }}">
-                    {{ order.created_at | time_tag: format: 'date' }}
-                  </td>
-                  <td
-                    headers="RowOrder ColumnPayment"
-                    role="cell"
-                    data-label="{{ 'customer.orders.payment_status' | t }}"
-                  >
-                    {{ order.financial_status_label }}
-                  </td>
-                  <td
-                    headers="RowOrder ColumnFulfillment"
-                    role="cell"
-                    data-label="{{ 'customer.orders.fulfillment_status' | t }}"
-                  >
-                    {{ order.fulfillment_status_label }}
-                  </td>
-                  <td headers="RowOrder ColumnTotal" role="cell" data-label="{{ 'customer.orders.total' | t }}">
-                    {{ order.total_net_amount | money_with_currency }}
-                  </td>
-                </tr>
-              {%- endfor -%}
-            </tbody>
-          </table>
-        {%- else -%}
-          <p>{{ 'customer.orders.none' | t }}</p>
-        {%- endif -%}
-
-        {%- if paginate.pages > 1 -%}
-          {%- if paginate.parts.size > 0 -%}
-            <nav class="pagination" role="navigation" aria-label="{{ 'general.pagination.label' | t }}">
-              <ul role="list">
-                {%- if paginate.previous -%}
-                  <li>
-                    <a href="{{ paginate.previous.url }}" aria-label="{{ 'general.pagination.previous' | t }}">
-                      <span class="svg-wrapper">
-                        {{- 'icon-caret.svg' | inline_asset_content -}}
-                      </span>
-                    </a>
-                  </li>
-                {%- endif -%}
-
-                {%- for part in paginate.parts -%}
-                  <li>
-                    {%- if part.is_link -%}
-                      <a href="{{ part.url }}" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">
-                        {{- part.title -}}
-                      </a>
-                    {%- else -%}
-                      {%- if part.title == paginate.current_page -%}
-                        <span aria-current="page" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">
-                          {{- part.title -}}
-                        </span>
-                      {%- else -%}
-                        <span>{{ part.title }}</span>
-                      {%- endif -%}
-                    {%- endif -%}
-                  </li>
-                {%- endfor -%}
-
-                {%- if paginate.next -%}
-                  <li>
-                    <a href="{{ paginate.next.url }}" aria-label="{{ 'general.pagination.next' | t }}">
-                      <span class="svg-wrapper">
-                        {{- 'icon-caret.svg' | inline_asset_content -}}
-                      </span>
-                    </a>
-                  </li>
-                {%- endif -%}
-              </ul>
-            </nav>
-          {%- endif -%}
-        {%- endif -%}
-      {% endpaginate %}
-    </div>
-
-    <div>
-      <h2>{{ 'customer.account.details' | t }}</h2>
-
-      {{ customer.default_address | format_address }}
-
-      <a href="{{ routes.account_addresses_url }}">
-        {{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})
-      </a>
-    </div>
+    <ul class="account-menu settings-menu">
+    <li>
+     <img src="https://cdn.shopify.com/s/files/1/0690/3411/5294/files/setting.svg?v=1736820844">
+      <a href="/account" class="menu-link">Settings</a>
+      <span class="menu-arrow">➔</span>
+    </li>
+    </ul>
   </div>
 </div>
+   <!-- Logout Button -->
+  <div class="logout-section">
+    {% if customer %}
+      <a href="{{ routes.account_logout_url }}" class="logout-button">Logout</a>
+    {% endif %}
+  </div> 
 
 {% schema %}
 {
