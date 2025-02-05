@@ -1,6 +1,38 @@
 {% schema %}
-  {
-    "name": "Block name",
-    "settings": []
-  }
+{
+  "name": "Custom Category",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "icon_image",
+      "label": "Category Icon"
+    },
+    {
+      "type": "text",
+      "id": "category_title",
+      "label": "Category Title",
+      "default": "Eat"
+    },
+    {
+      "type": "url",
+      "id": "category_url",
+      "label": "Category Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Category",
+    }
+  ]
+}
 {% endschema %}
+
+<a href="{{ section.settings.category_url }}" class="category-container" aria-label="Go to {{ section.settings.category_title }} page">
+  <div class="category-content-container">
+    {% if section.settings.icon_image %}
+      <img src="{{ section.settings.icon_image | img_url: 'medium' }}" alt="Icon" class="category-icon" />
+    {% endif %}
+    <h2 class="category-title">{{ section.settings.category_title }}</h2>
+  </div>
+  <img class="arrow" src="https://cdn.shopify.com/s/files/1/0690/3411/5294/files/Arrow.svg?v=1736260931" />
+</a>
