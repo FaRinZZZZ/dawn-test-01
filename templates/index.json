@@ -222,6 +222,12 @@
     },
     "custom_category_FWYtHr": {
       "type": "custom-category",
+      "custom_css": [
+        ".catagory-container {display: flex; justify-content: space-between; width: 30rem; margin: auto; text-decoration: none;}",
+        ".catagory-container h2 {font-weight: 900;}",
+        ".catagory-content-container {display: flex; gap: 0.8rem;}",
+        "@media only screen and (min-width: 1000px) {.catagory-container {width: 50rem; }}"
+      ],
       "settings": {
         "category_title": "test",
         "category_url": ""
