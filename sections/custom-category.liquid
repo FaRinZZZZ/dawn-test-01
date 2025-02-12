@@ -27,12 +27,34 @@
 }
 {% endschema %}
 
-<a href="{{ section.settings.category_url }}" class="category-container" aria-label="Go to {{ section.settings.category_title }} page">
+<a href="{{ section.settings.category_url }}" class="category-container" aria-label="{{ section.settings.category_title | default: 'Category' }} Page">
   <div class="category-content-container">
     {% if section.settings.icon_image %}
-      <img src="{{ section.settings.icon_image | img_url: 'medium' }}" alt="Icon" class="category-icon" />
+      <img src="{{ section.settings.icon_image | img_url: 'medium' }}" alt="{{ section.settings.category_title }} Icon" class="category-icon" />
     {% endif %}
     <h2 class="category-title">{{ section.settings.category_title }}</h2>
   </div>
-  <img class="arrow" src="https://cdn.shopify.com/s/files/1/0690/3411/5294/files/Arrow.svg?v=1736260931" />
+  <img class="arrow" src="https://cdn.shopify.com/s/files/1/0690/3411/5294/files/Arrow.svg?v=1736260931" alt="Arrow icon" />
 </a>
+
+{%- style -%}
+  .category-container {
+    display: flex;
+    justify-content: space-between;
+    width: 30rem;
+    margin: auto;
+    text-decoration: none;
+  }
+  .category-container h2 {
+    font-weight: 900;
+  }
+  .category-content-container {
+    display: flex;
+    gap: 0.8rem;
+  }
+  @media only screen and (min-width: 1000px) {
+    .category-container {
+      width: 50rem;
+    }
+  }
+{%- endstyle -%}
