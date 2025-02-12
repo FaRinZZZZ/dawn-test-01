@@ -8,12 +8,12 @@
             <div class="slider-container">
               <div class="slider">
                 <!-- Slide 1: Image 1 -->
-                <a href="https://pigisland.com/pig-island-nyc-2024-tickets/" target="_blank">
-                  <img src="https://cdn.shopify.com/s/files/1/0690/3411/5294/files/IMG_1215.avif?v=1726151752" width="1500" height="844">
+                <a href="{{ section.settings.slide1-url }}" target="_blank">
+                  <img src="{{ section.settings.slide1-img}}" width="1500" height="844">
                 </a>
                 <!-- Slide 2: Image 2 -->
-                <a href="https://pigisland.com/pig-island-nyc-2024-tickets/" target="_blank">
-                  <img src="https://cdn.shopify.com/s/files/1/0690/3411/5294/files/Your_Table_Awaits_Discover_the_Best_Thai_Dining_in_NYC_Just_a_Reservation_Away_2.jpg?v=1729077041" width="1500" height="844">
+                <a href="{{ section.settings.slide2-url }}" target="_blank">
+                  <img src="{{ section.settings.slide2-img }}" width="1500" height="844">
                 </a>
               </div>
             </div>
@@ -83,28 +83,28 @@
   "name": "Image Slider with Text",
   "settings": [
     {
-      "type": "textarea",
-      "id": "text_content",
-      "label": "Text Content",
-      "default": "Add your text here"
-    }
-  ],
-  "blocks": [
+      "type": "url",
+      "id": "slide1-url",
+      "label": "Slide1-url",
+      "default": "https://pigisland.com/pig-island-nyc-2024-tickets/"
+    },
     {
-      "type": "image",
-      "name": "Slide Image",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
-        },
-        {
-          "type": "url",
-          "id": "image_link",
-          "label": "Image Link"
-        }
-      ]
+        "type": "url",
+        "id": "slide1-img",
+        "label": "Slide 1 img",
+        "default": "https://cdn.shopify.com/s/files/1/0690/3411/5294/files/IMG_1215.avif?v=1726151752"
+    },
+    {
+        "type": "url",
+        "id" : "slide2-url",
+        "label": "Slide2-url",
+        "default" : "https://pigisland.com/pig-island-nyc-2024-tickets/"
+    },
+    {
+        "type": "url",
+        "id" : "slide2-img",
+        "label": "Slide2 img",
+        "default" : "https://cdn.shopify.com/s/files/1/0690/3411/5294/files/Your_Table_Awaits_Discover_the_Best_Thai_Dining_in_NYC_Just_a_Reservation_Away_2.jpg?v=1729077041"
     }
   ],
   "presets": [
