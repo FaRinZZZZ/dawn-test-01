@@ -32,7 +32,7 @@
     {% if section.settings.icon_image %}
       <img src="{{ section.settings.icon_image | img_url: 'medium' }}" alt="{{ section.settings.category_title }} Icon" class="category-icon" />
     {% endif %}
-    <h2 class="category-title">Test</h2>
+    <h2 class="category-title">{{ section.settings.category_title }}</h2>
   </div>
   <img class="arrow" src="https://cdn.shopify.com/s/files/1/0690/3411/5294/files/Arrow.svg?v=1736260931" alt="Arrow icon" />
 </a>
