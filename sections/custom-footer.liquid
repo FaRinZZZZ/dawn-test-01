@@ -18,6 +18,11 @@
       "id": "location",
       "label": "Location",
       "default": "43-11 28th Avenue Astoria, NY, 11103"
+    },
+    {
+      "type": "url",
+      "id": "account_url",
+      "label": "Account Link"
     }
   ],
   "presets": [
@@ -31,13 +36,13 @@
 <div class="footers">
     <div class="img-container-footer">
         {% if settings.logo %}
-            <img src="{{ settings.logo | img_url: 'medium' }}" alt="Footer Logo" class="footers-logo">
+            <img src="{{ section.settings.logo | img_url: 'medium' }}" alt="Footer Logo" class="footers-logo">
         {% endif %}
     </div>
 
     <div class="footers-description">
         <div class="footers-list-container">
-            <a href="https://www.everythai.com/account" class="footers-list">Account</a>
+            <a href="{{ section.settings.account_url }}" class="footers-list">Account</a>
             <a href="https://www.everythai.com/blogs/news" class="footers-list">Blog</a>
             <a href="https://www.everythai.com/pages/directory" class="footers-list">Eat</a>
             <a href="https://www.everythai.com/pages/trw_loyalty" class="footers-list">Reward</a>
@@ -45,8 +50,8 @@
         </div>
 
         <div class="contact-container">
-            <p>{{ settings.contact_info }}</p>
-            <p>{{ settings.location }}</p>
+            <p>{{ section.settings.contact_info }}</p>
+            <p>{{ section.settings.location }}</p>
         </div>
     </div>
 </div>
@@ -97,5 +102,6 @@
 
 html {
     font-family: "Poppins", sans-serif;
+    text-decoration: none;
 }
 {%- endstyle -%}
