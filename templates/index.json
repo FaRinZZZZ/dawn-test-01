@@ -15,6 +15,12 @@
         "include_margins": false
       }
     },
+    "custom_carousel_kQchUb": {
+      "type": "custom-carousel",
+      "settings": {
+        "text_content": "Add your text here"
+      }
+    },
     "custom_category_kcYp6z": {
       "type": "custom-category",
       "settings": {
@@ -194,6 +200,7 @@
   },
   "order": [
     "17224474321b81644e",
+    "custom_carousel_kQchUb",
     "custom_category_kcYp6z",
     "featured_collection_iKpUhD",
     "custom_category_c6n7zz",
