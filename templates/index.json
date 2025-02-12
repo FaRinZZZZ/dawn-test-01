@@ -15,45 +15,12 @@
         "include_margins": false
       }
     },
-    "custom_liquid_bibwPB": {
-      "type": "custom-liquid",
-      "custom_css": [
-        ".catagory-container {display: flex; justify-content: space-between; width: 30rem; margin: auto; text-decoration: none;}",
-        ".catagory-container h2 {font-weight: 900;}",
-        ".catagory-content-container {display: flex; gap: 0.8rem;}",
-        "@media only screen and (min-width: 1000px) {.catagory-container {width: 50rem; }}"
-      ],
+    "custom_category_kcYp6z": {
+      "type": "custom-category",
       "settings": {
-        "custom_liquid": "<a href=\"https://www.everythai.com/pages/directory\" class=\"catagory-container\" aria-label=\"Go to Eat page\">\n  <div class=\"catagory-content-container\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0690/3411/5294/files/Eat.svg?v=1736260594\" alt=\"Icon\" class=\"catagory-icon\" />\n    <h2 class=\"catagory-title\">Eat</h2>\n  </div>\n  <img class=\"arrow\" src=\"https://cdn.shopify.com/s/files/1/0690/3411/5294/files/Arrow.svg?v=1736260931\" />\n</a>",
-        "color_scheme": "",
-        "padding_top": 12,
-        "padding_bottom": 12
-      }
-    },
-    "custom_liquid_fib3fi": {
-      "type": "custom-liquid",
-      "custom_css": [],
-      "settings": {
-        "custom_liquid": "<div class=\"promotion-container\">\n  <!-- Vector + Text -->\n  <img src=\"https://cdn.shopify.com/s/files/1/0690/3411/5294/files/vector.svg?v=1736262432\" alt=\"Vector Icon\"  />\n  <h2 class=\"title\">Promotion</h2>\n\n<!---IMG Blog---!>\n<div class=\"IMGBox\">\n<div class=\"img-container\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0690/3411/5294/files/14262893_1432855780074415_1502726553_n.jpg?v=1727147659\"  />\n    </div>\n<h3>May Kaidee</h3>\n</div>\n\n\n\n<style>\n\n\n.promotion-container {\n  position: relative;\n  margin: auto;\n  width: 30rem;\n}\n.promotion-container img {\n  width: 100%;\n}\n.promotion-container h2 {\n  position: absolute;\n  bottom: 0.5rem;\n  left: 3rem;\n  font-size: 2rem;\n  font-weight: bold;\n}\n.IMGBox {\n  position: absolute;\n  top: -1rem;\n  right: 2rem;\n  width: 10rem;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  gap: 1px;\n  border-radius: 16px;\n  background-color: white;\n  padding-bottom: 1rem;\n}\n.promotion-container h3 {\n  margin: 0;\n  font-size: 1.2rem;\n  font-weight: bold;\n}\n.img-container img {\n  border-top-right-radius: 16px;\n  border-top-left-radius: 16px;\n}\n\n\n  html {\n    font-size: 10px;\n  }\n\n\n\n@media only screen and (min-width: 1000px) {\n  html {\n    font-size: 13px;\n  }\n.promotion-container {\n  width: 50rem;\n}\n.IMGBox{\n  width: 15rem;\n  right: 5rem;\n}\n.promotion-container h3 {\n  font-size: 1.5rem;\n}\n.promotion-container h2 {\n  font-size: 4rem;\n}\n\n</style>",
-        "color_scheme": "",
-        "padding_top": 24,
-        "padding_bottom": 20
-      }
-    },
-    "custom_liquid_RUNDhG": {
-      "type": "custom-liquid",
-      "custom_css": [
-        ".catagory-container {display: flex; justify-content: space-between; width: 30rem; margin: auto; text-decoration: none;}",
-        ".catagory-container h2 {font-weight: 900;}",
-        ".catagory-content-container {display: flex; gap: 0.8rem;}",
-        ".catagory-container img {display: none;}",
-        "@media only screen and (min-width: 1000px) {.catagory-container {width: 50rem; }}"
-      ],
-      "settings": {
-        "custom_liquid": "<a href=\"https://www.everythai.com/pages/directory\" class=\"catagory-container\" aria-label=\"Go to Eat page\">\n  <div class=\"catagory-content-container\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0690/3411/5294/files/Eat.svg?v=1736260594\" alt=\"Icon\" class=\"catagory-icon\" />\n    <h2 class=\"catagory-title\">NYC Restaurant</h2>\n  </div>\n  <img class=\"arrow\" src=\"https://cdn.shopify.com/s/files/1/0690/3411/5294/files/Arrow.svg?v=1736260931\" />\n</a>",
-        "color_scheme": "",
-        "padding_top": 0,
-        "padding_bottom": 12
+        "icon_image": "shopify://shop_images/Eat.svg",
+        "category_title": "NYC Restaurant",
+        "category_url": ""
       }
     },
     "featured_collection_iKpUhD": {
@@ -70,14 +37,15 @@
         "@media only screen and (min-width: 1000px) {img {width: 13rem; } .card__inner {height: 14rem; } .grid__item, .card--media {width: 13rem; height: 18rem; } .collection {width: 50rem; } .grid {gap: 5.5rem; }}"
       ],
       "settings": {
+        "everythaiClick": false,
         "title": "All stores",
         "heading_size": "h1",
         "description": "",
         "show_description": false,
         "description_style": "subtitle",
         "collection": "frontpage",
-        "products_to_show": 6,
-        "columns_desktop": 3,
+        "products_to_show": 7,
+        "columns_desktop": 4,
         "full_width": false,
         "show_view_all": false,
         "view_all_style": "link",
@@ -95,20 +63,27 @@
         "padding_bottom": 0
       }
     },
-    "custom_liquid_W9fVQE": {
-      "type": "custom-liquid",
-      "custom_css": [
-        ".catagory-container {display: flex; justify-content: space-between; width: 30rem; margin: auto; text-decoration: none;}",
-        ".catagory-container h2 {font-weight: 900;}",
-        ".catagory-content-container {display: flex; gap: 0.8rem;}",
-        "@media only screen and (min-width: 1000px) {.catagory-container {width: 50rem; }}"
-      ],
+    "custom_category_c6n7zz": {
+      "type": "custom-category",
       "settings": {
-        "custom_liquid": "<a href=\"https://www.everythai.com/blogs/news\" class=\"catagory-container\" aria-label=\"Go to Eat page\">\n  <div class=\"catagory-content-container\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0690/3411/5294/files/Blog.svg?v=1736261761\" alt=\"Icon\" class=\"catagory-icon\" />\n    <h2 class=\"catagory-title\">Blog</h2>\n  </div>\n  <img class=\"arrow\" src=\"https://cdn.shopify.com/s/files/1/0690/3411/5294/files/Arrow.svg?v=1736260931\" />\n</a>",
-        "color_scheme": "",
-        "padding_top": 12,
-        "padding_bottom": 12
+        "icon_image": "shopify://shop_images/Icon-shop.svg",
+        "category_title": "Shop",
+        "category_url": ""
       }
+    },
+    "custom_category_FWYtHr": {
+      "type": "custom-category",
+      "custom_css": [],
+      "settings": {
+        "icon_image": "shopify://shop_images/blog.svg",
+        "category_title": "Blog",
+        "category_url": ""
+      }
+    },
+    "pagefly-home": {
+      "type": "pagefly-home",
+      "disabled": true,
+      "settings": {}
     },
     "featured_blog_x4TMtc": {
       "type": "featured-blog",
@@ -137,11 +112,6 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
-    },
-    "pagefly-home": {
-      "type": "pagefly-home",
-      "disabled": true,
-      "settings": {}
     },
     "rich_text_AdJmRB": {
       "type": "rich-text",
@@ -189,6 +159,7 @@
         ".slider-counter {display: none;}"
       ],
       "settings": {
+        "everythaiClick": false,
         "title": "Shop",
         "heading_size": "h1",
         "description": "",
@@ -219,33 +190,18 @@
       "settings": {
         "include_margins": true
       }
-    },
-    "custom_category_FWYtHr": {
-      "type": "custom-category",
-      "custom_css": [
-        ".catagory-container {display: flex; justify-content: space-between; width: 30rem; margin: auto; text-decoration: none;}",
-        ".catagory-container h2 {font-weight: 900;}",
-        ".catagory-content-container {display: flex; gap: 0.8rem;}",
-        "@media only screen and (min-width: 1000px) {.catagory-container {width: 50rem; }}"
-      ],
-      "settings": {
-        "category_title": "test",
-        "category_url": ""
-      }
     }
   },
   "order": [
     "17224474321b81644e",
-    "custom_liquid_bibwPB",
-    "custom_liquid_fib3fi",
-    "custom_liquid_RUNDhG",
+    "custom_category_kcYp6z",
     "featured_collection_iKpUhD",
-    "custom_liquid_W9fVQE",
-    "featured_blog_x4TMtc",
+    "custom_category_c6n7zz",
+    "custom_category_FWYtHr",
     "pagefly-home",
+    "featured_blog_x4TMtc",
     "rich_text_AdJmRB",
     "featured_collection_xqLBxB",
-    "17309044524fdd3401",
-    "custom_category_FWYtHr"
+    "17309044524fdd3401"
   ]
 }
