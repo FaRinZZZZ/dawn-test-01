@@ -1,75 +1,83 @@
-{% comment %} Image Slider with Text Section {% endcomment %}
+change to liquid 
+[
 
-<div class="section-template--{{ section.id }}-padding gradient color-scheme-1" style="margin-top:30px;">
+<div class="section-template--17968798302430__image_with_text_jbnVDn-padding gradient color-scheme-1" style="margin-top:30px;">
     <div class="page-width">
       <div class="image-with-text image-with-text--no-overlap isolate scroll-trigger animate--slide-in">
         <div class="image-with-text__grid grid grid--gapless grid--1-col grid--1-col-tablet">
           <div class="image-with-text__media-item image-with-text__media-item--large image-with-text__media-item--top grid__item">
             <div class="slider-container">
               <div class="slider">
-                {% for block in section.blocks %}
-                  {% if block.type == 'image' %}
-                    <a href="{{ block.settings.image_link }}" target="_blank">
-                      <img src="{{ block.settings.image | img_url: '1500x844' }}" width="1500" height="844">
-                    </a>
-                  {% endif %}
-                {% endfor %}
+                <!-- Slide 1: Image 1 -->
+                <a href="https://pigisland.com/pig-island-nyc-2024-tickets/" target="_blank">
+                  <img src="https://cdn.shopify.com/s/files/1/0690/3411/5294/files/IMG_1215.avif?v=1726151752" width="1500" height="844">
+                </a>
+                <!-- Slide 2: Image 2 -->
+                <a href="https://pigisland.com/pig-island-nyc-2024-tickets/" target="_blank">
+                  <img src="https://cdn.shopify.com/s/files/1/0690/3411/5294/files/Your_Table_Awaits_Discover_the_Best_Thai_Dining_in_NYC_Just_a_Reservation_Away_2.jpg?v=1729077041" width="1500" height="844">
+                </a>
               </div>
             </div>
           </div>
           <div class="image-with-text__text-item grid__item">
-            <div id="ImageWithText--{{ section.id }}" class="image-with-text__content image-with-text__content--top image-with-text__content--desktop-left image-with-text__content--mobile-left image-with-text__content--adapt content-container background-transparent">
-              {{ section.settings.text_content }}
+            <div id="ImageWithText--template--17968798302430__image_with_text_jbnVDn" class="image-with-text__content image-with-text__content--top image-with-text__content--desktop-left image-with-text__content--mobile-left image-with-text__content--adapt content-container background-transparent">
+              <!-- Add your content here -->
             </div>
           </div>
         </div>
       </div>
     </div>
-</div>
-
-{%- style -%}
-.slider-container {
-  position: relative;
-  width: 30rem;
+  </div>
+  
+  {%- style -%}
+    .slider-container {
+      position: relative;
+      width: 30rem;
   margin: auto;
   height: 96%;
-  overflow: hidden;
+      overflow: hidden;
   border-radius: 16px;
-}
-
-.slider {
-  display: flex;
-  width: 100%;
-  transition: transform 1s ease;
-}
-
-.slider a {
-  flex: 1 0 100%;
-}
-
-.slider img {
-  width: 100%;
-  height: auto;
-}
-
-@media only screen and (min-width: 1000px) {
-   .slider-container {
-    width: 50rem;
+      
+  
+    }
+  
+    .slider {
+      display: flex;
+      width: 100%; /* Two images, so 200% of the container width */
+      transition: transform 1s ease; /* Smooth transition */
+    }
+  
+    .slider a {
+      flex: 1 0 100%; /* Each link/image takes up 100% of the container */
+    }
+  
+    .slider img {
+      width: 100%; /* Image fully occupies the container width */
+      height: auto;
+    }
+  
+  
+  
+  @media only screen and (min-width: 1000px) {
+     .slider-container {
+      width: 50rem;
+    }
   }
-}
-{%- endstyle -%}
+  {%- endstyle -%}
 
-<script>
-  let currentIndex = 0;
-
-  function slideShow() {
-    const slider = document.querySelector('.slider');
-    currentIndex = (currentIndex + 1) % document.querySelectorAll('.slider a').length;
-    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-  }
-
-  setInterval(slideShow, 5000);
-</script>
+  
+  
+  <script>
+    let currentIndex = 0;
+  
+    function slideShow() {
+      const slider = document.querySelector('.slider');
+      currentIndex = (currentIndex + 1) % 2; // Alternates between 0 and 1 (first and second image)
+      slider.style.transform = translateX(-${currentIndex * 100}%); // Move between 0% and -100%
+    }
+  
+    setInterval(slideShow, 5000); // Change slide every 5 seconds
+  </script>]
 
 {% schema %}
 {
