@@ -1,5 +1,25 @@
 {% schema %}
 {
+  "name": "Custom Footer",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Footer Logo"
+    },
+    {
+      "type": "text",
+      "id": "contact_info",
+      "label": "Contact Info",
+      "default": "Contact Us: xxx-xxxxxxx   Email: xxxxx@gmail.com"
+    },
+    {
+      "type": "text",
+      "id": "location",
+      "label": "Location",
+      "default": "43-11 28th Avenue Astoria, NY, 11103"
+    }
+  ],
   "presets": [
     {
       "name": "Custom Footer"
@@ -8,102 +28,74 @@
 }
 {% endschema %}
 
-
 <div class="footers">
     <div class="img-container-footer">
-        <img src={{ settings.logo | img_url: 'medium'}}alt="logo" class="footers-logo">
+        {% if settings.logo %}
+            <img src="{{ settings.logo | img_url: 'medium' }}" alt="Footer Logo" class="footers-logo">
+        {% endif %}
     </div>
-
 
     <div class="footers-description">
         <div class="footers-list-container">
             <a href="https://www.everythai.com/account" class="footers-list">Account</a>
-            <a href="https://www.everythai.com/blogs/news"class="footers-list">Blog</a>
-            <a  href="https://www.everythai.com/pages/directory"class="footers-list">Eat</a>
+            <a href="https://www.everythai.com/blogs/news" class="footers-list">Blog</a>
+            <a href="https://www.everythai.com/pages/directory" class="footers-list">Eat</a>
             <a href="https://www.everythai.com/pages/trw_loyalty" class="footers-list">Reward</a>
-            <a href="https://www.everythai.com/cart"class="footers-list">Shop</a>
-
+            <a href="https://www.everythai.com/cart" class="footers-list">Shop</a>
         </div>
-<div class="conatact-container">
-<p>Contact Us : xxx-xxxxxxx   Emal : xxxxx@gmail.com</p>
-        <p>Location : 43-11 28th Avenue Astoria, NY, 11103</p>
-</div>
-        
-    </div>
-    
 
+        <div class="contact-container">
+            <p>{{ settings.contact_info }}</p>
+            <p>{{ settings.location }}</p>
+        </div>
+    </div>
 </div>
-</body>
 
 {%- style -%}
- .footers {
-margin: 0;
-        padding: 0;
-font-size: 1.5rem;
-color: #4d4b4b;
-font-weight: 600;
-        box-sizing: border-box;
-        height: 20rem;
-        background-color: #FD9BBE;
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        padding: 3rem;
-    }
-    .img-container-footer {
-        width: 20rem;
-    }
-    .footers-list-container {
-        text-decoration: none;
-        list-style: none;
-        display: flex;
-        gap: 1rem;
-    }
-    .footers-description {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: rem;
-    }
+.footers {
+    margin: 0;
+    padding: 0;
+    font-size: 1.5rem;
+    color: #4d4b4b;
+    font-weight: 600;
+    box-sizing: border-box;
+    height: 20rem;
+    background-color: #FD9BBE;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem;
+}
+.img-container-footer {
+    width: 20rem;
+}
+.footers-list-container {
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+.footers-description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+}
 .footers-description p {
-margin: 0;
+    margin: 0;
 }
-.conatact-container {
-display: flex;
-flex-direction: column;
-align-items: center;
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-
 .footers-logo {
-filter: brightness(0) invert(0);
+    filter: brightness(0) invert(0);
 }
 
-
-
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 html {
-font-family: "Poppins", serif;
+    font-family: "Poppins", sans-serif;
 }
-  .category-container {
-    display: flex;
-    justify-content: space-between;
-    width: 30rem;
-    margin: auto;
-    text-decoration: none;
-  }
-  .category-container h2 {
-    font-weight: 900;
-  }
-  .category-content-container {
-    display: flex;
-    gap: 0.8rem;
-  }
-  @media only screen and (min-width: 1000px) {
-    .category-container {
-      width: 50rem;
-    }
-  }
 {%- endstyle -%}
