@@ -1,0 +1,109 @@
+{% comment %} Image Slider with Text Section {% endcomment %}
+
+<div class="section-template--{{ section.id }}-padding gradient color-scheme-1" style="margin-top:30px;">
+    <div class="page-width">
+      <div class="image-with-text image-with-text--no-overlap isolate scroll-trigger animate--slide-in">
+        <div class="image-with-text__grid grid grid--gapless grid--1-col grid--1-col-tablet">
+          <div class="image-with-text__media-item image-with-text__media-item--large image-with-text__media-item--top grid__item">
+            <div class="slider-container">
+              <div class="slider">
+                {% for block in section.blocks %}
+                  {% if block.type == 'image' %}
+                    <a href="{{ block.settings.image_link }}" target="_blank">
+                      <img src="{{ block.settings.image | img_url: '1500x844' }}" width="1500" height="844">
+                    </a>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          <div class="image-with-text__text-item grid__item">
+            <div id="ImageWithText--{{ section.id }}" class="image-with-text__content image-with-text__content--top image-with-text__content--desktop-left image-with-text__content--mobile-left image-with-text__content--adapt content-container background-transparent">
+              {{ section.settings.text_content }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+{%- style -%}
+.slider-container {
+  position: relative;
+  width: 30rem;
+  margin: auto;
+  height: 96%;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.slider {
+  display: flex;
+  width: 100%;
+  transition: transform 1s ease;
+}
+
+.slider a {
+  flex: 1 0 100%;
+}
+
+.slider img {
+  width: 100%;
+  height: auto;
+}
+
+@media only screen and (min-width: 1000px) {
+   .slider-container {
+    width: 50rem;
+  }
+}
+{%- endstyle -%}
+
+<script>
+  let currentIndex = 0;
+
+  function slideShow() {
+    const slider = document.querySelector('.slider');
+    currentIndex = (currentIndex + 1) % document.querySelectorAll('.slider a').length;
+    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  setInterval(slideShow, 5000);
+</script>
+
+{% schema %}
+{
+  "name": "Image Slider with Text",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "text_content",
+      "label": "Text Content",
+      "default": "Add your text here"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Slide Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "image_link",
+          "label": "Image Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image Slider with Text"
+    }
+  ]
+}
+{% endschema %}
