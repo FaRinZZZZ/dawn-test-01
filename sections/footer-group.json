@@ -14,8 +14,10 @@
     "custom_footer_W9Aw73": {
       "type": "custom-footer",
       "settings": {
+        "logo": "shopify://shop_images/logo.png",
         "contact_info": "Contact Us: xxx-xxxxxxx   Email: xxxxx@gmail.com",
-        "location": "43-11 28th Avenue Astoria, NY, 11103"
+        "location": "43-11 28th Avenue Astoria, NY, 11103",
+        "account_url": ""
       }
     },
     "footer": {
