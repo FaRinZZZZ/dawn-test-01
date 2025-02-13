@@ -1,0 +1,143 @@
+{% schema %}
+{
+  "name": "Custom Footer",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Footer Logo"
+    },
+    {
+      "type": "text",
+      "id": "contact_info",
+      "label": "Contact Info",
+      "default": "Contact Us: xxx-xxxxxxx   Email: xxxxx@gmail.com"
+    },
+    {
+      "type": "text",
+      "id": "location",
+      "label": "Location",
+      "default": "43-11 28th Avenue Astoria, NY, 11103"
+    },
+    {
+      "type": "url",
+      "id": "account_url",
+      "label": "AccountURL"
+    },
+    {
+      "type": "url",
+      "id": "blog_url",
+      "label": "BlogURL"
+    },
+    {
+      "type": "url",
+      "id": "eat_url",
+      "label": "EatURL"
+    },
+    {
+      "type": "url",
+      "id": "reward_url",
+      "label": "RewardURL"
+    },
+    {
+      "type": "url",
+      "id": "shop_url",
+      "label": "ShopURL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Footer"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="footers">
+    <div class="img-container-footer">
+        {% if section.settings.logo %}
+            <img src="{{ section.settings.logo | img_url: 'medium' }}" alt="Footer Logo" class="footers-logo">
+        {% endif %}
+    </div>
+
+    <div class="footers-description">
+        <div class="footers-list-container">
+            <a href="{{ section.settings.account_url }}" class="footers-list">Account</a>
+            <a href="h{{ section.settings.blog_url }}" class="footers-list">Blog</a>
+            <a href="{{ section.settings.eat_url }}" class="footers-list">Eat</a>
+            <a href="{{ section.settings.reward_url }}" class="footers-list">Reward</a>
+            <a href="{{ section.settings.shop_url }}" class="footers-list">Shop</a>
+        </div>
+
+        <div class="contact-container">
+            <p>{{ section.settings.contact_info }}</p>
+            <p>{{ section.settings.location }}</p>
+        </div>
+    </div>
+</div>
+
+{%- style -%}
+a {
+    text-decoration: none;
+    color: #4d4b4b;
+}
+.footers {
+    margin: 0;
+    padding: 0;
+    font-size: 1.5rem;
+    color: #4d4b4b;
+    font-weight: 600;
+    box-sizing: border-box;
+    height: 20rem;
+    background-color: #FD9BBE;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem;
+}
+.img-container-footer {
+    width: 20rem;
+}
+.footers-list-container {
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+.footers-description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+}
+.footers-description p {
+    margin: 0;
+}
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.footers-logo {
+    filter: brightness(0) invert(0);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+html {
+    font-family: "Poppins", sans-serif;
+}
+@media only screen and (min-width: 1000px) {
+  .footers {
+    display: flex;
+  }
+}
+a {
+  text-decoration: none;
+  color: #4d4b4b;
+  transition: color 0.5s ease;
+}
+a:hover {
+  color: #848282;
+}
+{%- endstyle -%}
