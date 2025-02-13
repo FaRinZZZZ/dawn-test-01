@@ -22,7 +22,27 @@
     {
       "type": "url",
       "id": "account_url",
-      "label": "Account Link"
+      "label": "AccountURL"
+    },
+    {
+      "type": "url",
+      "id": "blog_url",
+      "label": "BlogURL"
+    },
+    {
+      "type": "url",
+      "id": "eat_url",
+      "label": "EatURL"
+    },
+    {
+      "type": "url",
+      "id": "reward_url",
+      "label": "RewardURL"
+    },
+    {
+      "type": "url",
+      "id": "shop_url",
+      "label": "ShopURL"
     }
   ],
   "presets": [
@@ -43,10 +63,10 @@
     <div class="footers-description">
         <div class="footers-list-container">
             <a href="{{ section.settings.account_url }}" class="footers-list">Account</a>
-            <a href="https://www.everythai.com/blogs/news" class="footers-list">Blog</a>
-            <a href="https://www.everythai.com/pages/directory" class="footers-list">Eat</a>
-            <a href="https://www.everythai.com/pages/trw_loyalty" class="footers-list">Reward</a>
-            <a href="https://www.everythai.com/cart" class="footers-list">Shop</a>
+            <a href="h{{ section.settings.blog_url }}" class="footers-list">Blog</a>
+            <a href="{{ section.settings.eat_url }}" class="footers-list">Eat</a>
+            <a href="{{ section.settings.reward_url }}" class="footers-list">Reward</a>
+            <a href="{{ section.settings.shop_url }}" class="footers-list">Shop</a>
         </div>
 
         <div class="contact-container">
