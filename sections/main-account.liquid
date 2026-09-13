@@ -1,145 +1,149 @@
 {{ 'customer.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-
-
-
-/* sorawis CSS */
-ul *{
-  border: solid red 1p;
-}
-  
-.account-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  gap: 0.5rem;
-}
-  .account-menu a {
-    height: 2rem;
-  display: inline-flex;
-  align-items: center;
-  }
-
-  .account-menu img {
-    margin-right: 1rem;
-    width: 2rem;
-  }
-
-
-  }
-
-  .settings-menu {
-    margin-top: 4rem;
-  }
-
-
-  .customer__title {
-    font-weight: 900;
-  }
-
-  .account-icon img {
-    width: 8rem;
-    height: 8rem;
-  }
-
-
-  #MainContent {
-    height: 70vh;
-  }
-/* sorawis/end  */
-
-  @media only screen and (min-width: 1000px) {
-    .account-header {
-      flex-direction: column;
-    }
-
-    .account-info {
-      margin-bottom: 1.5rem;
-    }
-  }
-  
-
-  @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
     }
+
+
+
+
+  /* sorawis CSS */
+  ul *{
+    border: solid red 1p;
   }
+
+  .account-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    gap: 0.5rem;
+  }
+    .account-menu a {
+      height: 2rem;
+    display: inline-flex;
+    align-items: center;
+    }
+
+    .account-menu img {
+      margin-right: 1rem;
+      width: 2rem;
+    }
+
+
+    }
+
+    .settings-menu {
+      margin-top: 4rem;
+    }
+
+
+    .customer__title {
+      font-weight: 900;
+    }
+
+    .account-icon img {
+      width: 8rem;
+      height: 8rem;
+    }
+
+
+    #MainContent {
+      height: 70vh;
+    }
+  /* sorawis/end  */
+
+    @media only screen and (min-width: 1000px) {
+      .account-header {
+        flex-direction: column;
+      }
+
+      .account-info {
+        margin-bottom: 1.5rem;
+      }
+    }
+
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
 {%- endstyle -%}
 
-
-
-  <div class="customer-dashboard">
-    <div class="customer-account section-{{ section.id }}-padding">
-  <!-- Account Title -->
-  <div class="account-title">
-    <img src="https://cdn.shopify.com/s/files/1/0690/3411/5294/files/Account.svg?v=1736819484">
-    <h1 class="customer__title">{{ 'customer.account.title' | t }}</h1>
-  </div>
-  <!-- Header Section -->
-  <div class="account-header">
-    <div class="account-icon">
-      {% if customer %}
-        <img src="{{ customer.image | default: 'https://cdn.shopify.com/s/files/1/0690/3411/5294/files/Account.svg?v=1736819484' }}" alt="{{ customer.first_name }}'s Profile Picture">
-      {% else %}
-        <img src="https://cdn.shopify.com/s/files/1/0690/3411/5294/files/Account.svg?v=1736819484" alt="Default Profile Picture">
-      {% endif %}
+<div class="customer-dashboard">
+  <div class="customer-account section-{{ section.id }}-padding">
+    <!-- Account Title -->
+    <div class="account-title">
+      <img src="https://cdn.shopify.com/s/files/1/0690/3411/5294/files/Account.svg?v=1736819484">
+      <h1 class="customer__title">{{ 'customer.account.title' | t }}</h1>
     </div>
-    <div class="account-info">
-            <!-- Username -->
-      {% if customer %}
-        <h2>{{ customer.first_name | default: 'Guest' }}</h2>
-      {% else %}
-        <h2>Guest</h2>
-      {% endif %}
+    <!-- Header Section -->
+    <div class="account-header">
+      <div class="account-icon">
+        {% if customer %}
+          <img
+            src="{{ customer.image | default: 'https://cdn.shopify.com/s/files/1/0690/3411/5294/files/Account.svg?v=1736819484' }}"
+            alt="{{ customer.first_name }}'s Profile Picture"
+          >
+        {% else %}
+          <img
+            src="https://cdn.shopify.com/s/files/1/0690/3411/5294/files/Account.svg?v=1736819484"
+            alt="Default Profile Picture"
+          >
+        {% endif %}
+      </div>
+      <div class="account-info">
+        <!-- Username -->
+        {% if customer %}
+          <h2>{{ customer.first_name | default: 'Guest' }}</h2>
+        {% else %}
+          <h2>Guest</h2>
+        {% endif %}
+      </div>
     </div>
-  </div>
 
-  <!-- Menu Section -->
-  <ul class="account-menu">
-    <li>
-      <img src="https://cdn.shopify.com/s/files/1/0690/3411/5294/files/account-small.svg?v=1736820178">
-      <a href="/account" class="menu-link">Account Info.</a>
-      <span class="menu-arrow">➔</span>
-    </li>
-    <li>
-      <img src="https://cdn.shopify.com/s/files/1/0690/3411/5294/files/Shop.svg?v=1736261696">
-      <a href="/orders" class="menu-link">Order history</a>
-      <span class="menu-arrow">➔</span>
-    </li>
-    <li>
-      <img src="https://cdn.shopify.com/s/files/1/0690/3411/5294/files/cart.svg?v=1736820422">
-      <a href="/cart" class="menu-link">Cart</a>
-      <span class="menu-arrow">➔</span>
-    </li>
-    <li>
-     <img src="https://cdn.shopify.com/s/files/1/0690/3411/5294/files/star.svg?v=1736608334">
-      <a href="/pages/reward-view" class="menu-link">XXX</a>
-      <span class="menu-arrow">➔</span>
-    </li>
-  </ul>
+    <!-- Menu Section -->
+    <ul class="account-menu">
+      <li>
+        <img src="https://cdn.shopify.com/s/files/1/0690/3411/5294/files/account-small.svg?v=1736820178">
+        <a href="/account" class="menu-link">Info.</a>
+        <span class="menu-arrow">➔</span>
+      </li>
+      <li>
+        <img src="https://cdn.shopify.com/s/files/1/0690/3411/5294/files/Shop.svg?v=1736261696">
+        <a href="/orders" class="menu-link">Order history</a>
+        <span class="menu-arrow">➔</span>
+      </li>
+      <li>
+        <img src="https://cdn.shopify.com/s/files/1/0690/3411/5294/files/cart.svg?v=1736820422">
+        <a href="/cart" class="menu-link">Cart</a>
+        <span class="menu-arrow">➔</span>
+      </li>
+      <li>
+        <img src="https://cdn.shopify.com/s/files/1/0690/3411/5294/files/star.svg?v=1736608334">
+        <a href="/pages/reward-view" class="menu-link">XXX</a>
+        <span class="menu-arrow">➔</span>
+      </li>
+    </ul>
 
     <ul class="account-menu settings-menu">
-    <li>
-     <img src="https://cdn.shopify.com/s/files/1/0690/3411/5294/files/setting.svg?v=1736820844">
-      <a href="/account" class="menu-link">Settings</a>
-      <span class="menu-arrow">➔</span>
-    </li>
+      <li>
+        <img src="https://cdn.shopify.com/s/files/1/0690/3411/5294/files/setting.svg?v=1736820844">
+        <a href="/account" class="menu-link">Settings</a>
+        <span class="menu-arrow">➔</span>
+      </li>
     </ul>
   </div>
 </div>
-   <!-- Logout Button -->
-  <div class="logout-section">
-    {% if customer %}
-      <a href="{{ routes.account_logout_url }}" class="logout-button">Logout</a>
-    {% endif %}
-  </div> 
+<!-- Logout Button -->
+<div class="logout-section">
+  {% if customer %}
+    <a href="{{ routes.account_logout_url }}" class="logout-button">Logout</a>
+  {% endif %}
+</div>
 
 {% schema %}
 {

@@ -1,0 +1,114 @@
+
+
+<div class="section-template--17968798302430__image_with_text_jbnVDn-padding gradient color-scheme-1" style="margin-top:30px;">
+    <div class="page-width">
+      <div class="image-with-text image-with-text--no-overlap isolate scroll-trigger animate--slide-in">
+        <div class="image-with-text__grid grid grid--gapless grid--1-col grid--1-col-tablet">
+          <div class="image-with-text__media-item image-with-text__media-item--large image-with-text__media-item--top grid__item">
+            <div class="slider-container">
+              <div class="slider">
+                <!-- Slide 1: Image 1 -->
+                <a href="{{ section.settings.slide1-url }}" target="_blank">
+                  <img src="{{ section.settings.slide1-img}}" width="1500" height="844">
+                </a>
+                <!-- Slide 2: Image 2 -->
+                <a href="{{ section.settings.slide2-url }}" target="_blank">
+                  <img src="{{ section.settings.slide2-img }}" width="1500" height="844">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="image-with-text__text-item grid__item">
+            <div id="ImageWithText--template--17968798302430__image_with_text_jbnVDn" class="image-with-text__content image-with-text__content--top image-with-text__content--desktop-left image-with-text__content--mobile-left image-with-text__content--adapt content-container background-transparent">
+              <!-- Add your content here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  {%- style -%}
+    .slider-container {
+      position: relative;
+      width: 30rem;
+  margin: auto;
+  height: 96%;
+      overflow: hidden;
+  border-radius: 16px;
+      
+  
+    }
+  
+    .slider {
+      display: flex;
+      width: 100%; /* Two images, so 200% of the container width */
+      transition: transform 1s ease; /* Smooth transition */
+    }
+  
+    .slider a {
+      flex: 1 0 100%; /* Each link/image takes up 100% of the container */
+    }
+  
+    .slider img {
+      width: 100%; /* Image fully occupies the container width */
+      height: auto;
+    }
+  
+  
+  
+  @media only screen and (min-width: 1000px) {
+     .slider-container {
+      width: 50rem;
+    }
+  }
+  {%- endstyle -%}
+
+  
+  
+  <script>
+    let currentIndex = 0;
+  
+    function slideShow() {
+      const slider = document.querySelector('.slider');
+      currentIndex = (currentIndex + 1) % 2; // Alternates between 0 and 1 (first and second image)
+      slider.style.transform = translateX(-${currentIndex * 100}%); // Move between 0% and -100%
+    }
+  
+    setInterval(slideShow, 5000); // Change slide every 5 seconds
+  </script>
+
+{% schema %}
+{
+  "name": "Custom Carousel",
+  "settings": [
+    {
+      "type": "url",
+      "id": "slide1-url",
+      "label": "Slide1-url",
+      "default": "https://pigisland.com/pig-island-nyc-2024-tickets/"
+    },
+    {
+      "type": "image_picker",
+      "id": "slide1-img",
+      "label": "Slide 1 img"
+   },
+    {
+        "type": "url",
+        "id" : "slide2-url",
+        "label": "Slide2-url",
+        "default" : "https://pigisland.com/pig-island-nyc-2024-tickets/"
+    },
+    {
+      "type": "image_picker",
+      "id": "slide2-img",
+      "label": "Slide 2 img"
+   }
+  ],
+  "presets": [
+    {
+      "name": "Custom Carousel"
+    }
+  ]
+}
+{% endschema %}
